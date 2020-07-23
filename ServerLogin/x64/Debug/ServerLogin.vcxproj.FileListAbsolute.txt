@@ -1,2 +1,0 @@
-C:\Users\hoang\Desktop\cnpm\cnpm\ServerLogin\x64\Debug\ServerLogin.exe
-C:\Users\hoang\Desktop\cnpm\cnpm\ServerLogin\x64\Debug\ServerLogin.pdb

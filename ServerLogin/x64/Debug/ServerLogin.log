@@ -1,3 +1,0 @@
-﻿  ServerConnect.cpp
-C:\Users\hoang\Desktop\cnpm\cnpm\ServerLogin\DBManager.h(11,2): warning C4091: 'typedef ': ignored on left of 'MysqlConnectInfo' when no variable is declared
-  ServerLogin.vcxproj -> C:\Users\hoang\Desktop\cnpm\cnpm\ServerLogin\x64\Debug\ServerLogin.exe
