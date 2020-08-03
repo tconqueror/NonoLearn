@@ -186,6 +186,8 @@
   <ItemGroup>
     <ClInclude Include="ChangePassword.h" />
     <ClInclude Include="ClientConnect.h" />
+    <ClInclude Include="Client_GV_Room_Connect.h" />
+    <ClInclude Include="Client_Room_Connect.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="IDRequestGV.h" />
     <ClInclude Include="IDrequestSV.h" />
@@ -202,6 +204,8 @@
   <ItemGroup>
     <ClCompile Include="ChangePassword.cpp" />
     <ClCompile Include="ClientConnect.cpp" />
+    <ClCompile Include="Client_GV_Room_Connect.cpp" />
+    <ClCompile Include="Client_Room_Connect.cpp" />
     <ClCompile Include="IDRequestGV.cpp" />
     <ClCompile Include="IDrequestSV.cpp" />
     <ClCompile Include="MenuGV.cpp" />

@@ -63,7 +63,9 @@ void IDRequestGV::OnBnClickedOk()
 		MessageBox(L"Phòng không tồn tại", L"Vào phòng", 1);
 		return;
 	}
-	Room_GV rgv;
+	CString r_port;
+	r_port.Format(L"%d", res);
+	Room_GV rgv(session, ip, r_port);
 	rgv.DoModal();
 	p->show();
 	CDialogEx::OnOK();

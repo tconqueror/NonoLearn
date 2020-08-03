@@ -65,7 +65,9 @@ void IDrequestSV::OnBnClickedOk()
 		MessageBox(L"Phòng không tồn tại", L"Vào phòng", 1);
 		return;
 	}
-	Room_SV rsv;
+	CString r_port;
+	r_port.Format(L"%d", res);
+	Room_SV rsv(session, ip, r_port); // need ip port session
 	rsv.DoModal();
 	p->show();
 	CDialogEx::OnOK();

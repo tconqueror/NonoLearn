@@ -40,11 +40,17 @@ BEGIN_MESSAGE_MAP(MenuGV, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON3, &MenuGV::OnBnClickedButton3)
 	ON_BN_CLICKED(IDC_BUTTON4, &MenuGV::OnBnClickedButton4)
 	ON_BN_CLICKED(IDC_BUTTON5, &MenuGV::OnBnClickedButton5)
+	ON_WM_CLOSE()
 END_MESSAGE_MAP()
 
 
 // MenuGV message handlers
 
+
+void MenuGV::OnClose()
+{
+	OnBnClickedButton5();
+}
 
 void MenuGV::OnBnClickedButton1() //vao phong
 {

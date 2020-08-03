@@ -26,6 +26,7 @@ private:
 	CString ip;
 	CString port;
 	CNonolearnDlg* pNonoLogin;
+	afx_msg void OnClose();
 public:
 	afx_msg void OnBnClickedButton1();
 	afx_msg void OnBnClickedButton2();

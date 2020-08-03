@@ -25,9 +25,11 @@ public:
 	afx_msg void OnBnClickedButton2();
 	afx_msg void OnBnClickedButton4();
 	afx_msg void OnBnClickedButton3();
+	
 private:
 	int session;
 	CString ip;
+	afx_msg void OnClose();
 	CString port;
 	CNonolearnDlg* pNonoLogin;
 public:

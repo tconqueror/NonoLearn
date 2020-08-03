@@ -22,8 +22,8 @@
 
 CNonolearnDlg::CNonolearnDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_NONOLEARN_DIALOG, pParent)
-	, ip(_T(""))
-	, port(_T(""))
+	, ip(_T("192.168.197.1"))
+	, port(_T("12345"))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -59,7 +59,6 @@ BOOL CNonolearnDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	// TODO: Add extra initialization here
-
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 

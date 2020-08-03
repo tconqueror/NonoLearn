@@ -42,6 +42,7 @@ BEGIN_MESSAGE_MAP(MenuSV, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON3, &MenuSV::OnBnClickedButton3)
 	ON_BN_CLICKED(IDC_BUTTON5, &MenuSV::OnBnClickedButton5)
 	ON_BN_CLICKED(IDC_BUTTON1, &MenuSV::OnBnClickedButton1)
+	ON_WM_CLOSE()
 END_MESSAGE_MAP()
 
 
@@ -66,6 +67,11 @@ void MenuSV::OnBnClickedButton3() //Change password
 	//MessageBox(L"Chức năng này đang phát triển", L"Thông báo", 0);
 	ChangePassword cp(session,ip,port);
 	cp.DoModal();
+}
+
+void MenuSV::OnClose()
+{
+	OnBnClickedButton5();
 }
 
 

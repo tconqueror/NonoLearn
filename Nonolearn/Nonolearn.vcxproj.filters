@@ -57,6 +57,12 @@
     <ClInclude Include="Room_SV.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Client_Room_Connect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Client_GV_Room_Connect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Nonolearn.cpp">
@@ -90,6 +96,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Room_SV.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Client_Room_Connect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Client_GV_Room_Connect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
