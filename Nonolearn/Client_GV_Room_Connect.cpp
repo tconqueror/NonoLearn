@@ -10,12 +10,14 @@ Client_GV_Room_Connect::Client_GV_Room_Connect(Room_GV* t_p, int session, CStrin
 	swprintf_s((wchar_t*)bufname, 5000, L"IP: %s Port: %s", addr, port);
 	t_p->SetWindowTextW((wchar_t*)bufname);
 	clientroom = t_p;
+	clientroom->GetDlgItem(ID_SEND)->EnableWindow(false);
 	int i_port = _ttoi(port);
 	_bstr_t b(addr);
 	char* c = b;
 	//
 	if (WSAStartup(MAKEWORD(2, 2), &wsa))
 	{
+		clientroom->GetDlgItem(ID_SEND)->EnableWindow(false);
 		CString errcode;
 		errcode.Format(_T("%d"), WSAGetLastError());
 		AfxMessageBox(L"WSAStartup " + errcode);
@@ -23,6 +25,7 @@ Client_GV_Room_Connect::Client_GV_Room_Connect(Room_GV* t_p, int session, CStrin
 	}
 	if ((s = socket(AF_INET, SOCK_STREAM, 0)) == INVALID_SOCKET)
 	{
+		clientroom->GetDlgItem(ID_SEND)->EnableWindow(false);
 		CString errcode;
 		errcode.Format(_T("%d"), WSAGetLastError());
 		AfxMessageBox(L"CreateSocket " + errcode);
@@ -34,10 +37,32 @@ Client_GV_Room_Connect::Client_GV_Room_Connect(Room_GV* t_p, int session, CStrin
 	server.sin_port = htons(i_port);
 	if (connect(s, (struct sockaddr*)&server, sizeof(server)))
 	{
+		clientroom->GetDlgItem(ID_SEND)->EnableWindow(false);
 		CString errcode;
 		errcode.Format(_T("%d"), WSAGetLastError());
 		AfxMessageBox(L"Connect " + errcode);
 		return;
+	}
+	if (send(s, (char*)&session, 4, 0) == SOCKET_ERROR)
+	{
+		clientroom->GetDlgItem(ID_SEND)->EnableWindow(false);
+		CString errcode;
+		errcode.Format(_T("%d"), WSAGetLastError());
+		AfxMessageBox(L"Session " + errcode);
+		return;
+	}
+	ZeroMemory(bufname, 10000);
+	int recv_size = 0;
+	if ((recv_size = recv(s, bufname, 10000, 0)) != SOCKET_ERROR)
+	{
+		bufname[recv_size] = '\0';
+		if (memcmp(bufname, "OK", 2))
+		{
+			clientroom->GetDlgItem(ID_SEND)->EnableWindow(false);
+			clientroom->ShowMessage(L"Wrong Session" + addr + L":" + port + L"\n");
+			return;
+
+		}
 	}
 	clientroom->GetDlgItem(ID_SEND)->EnableWindow(true);
 	clientroom->ShowMessage(L"Connect successfully to " + addr + L":" + port + L"\n");
@@ -81,4 +106,5 @@ void Client_GV_Room_Connect::Start()
 		clientroom->ShowMessage(cstemp);
 	}
 	clientroom->ShowMessage(L"Server stopped");
+	clientroom->GetDlgItem(ID_SEND)->EnableWindow(false);
 }
